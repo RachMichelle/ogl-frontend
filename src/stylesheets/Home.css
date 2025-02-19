@@ -1,0 +1,38 @@
+.card {
+    width: 40vw;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 25vh;
+    text-align: center;
+    background-color: rgba(198, 217, 235, .75);
+    border: 3px solid rgb(243, 243, 149);
+    box-shadow: 5px 5px 5px rgb(193, 194, 148);
+}
+
+.card-title{
+    font-size: 4rem;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(66, 17, 66);
+}
+
+.card-subtitle{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(77, 13, 138);
+} 
+
+.Home-text {
+    font-style: italic;
+    font-weight: normal !important;
+    background-color: transparent !important;
+    color: black;
+}
+
+.Home-contact-link {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.Home-contact-link:hover {
+    text-decoration: underline;
+    color:rgb(77, 13, 138);
+}

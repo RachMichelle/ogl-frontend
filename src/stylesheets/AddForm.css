@@ -1,0 +1,39 @@
+.AddForm {
+    margin-top: 8vh;
+    padding: 0 50px 20px 50px;
+}
+
+.AddForm form {
+    margin-top: 15px;
+}
+
+.AddForm label {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.AddForm-btn {
+    color: rgb(77, 13, 138);
+    border: 1px solid rgb(77, 13, 138);
+    margin: auto;
+}
+
+.AddForm-btn:hover {
+    background-color: rgb(77, 13, 138)
+}
+
+.AddForm-cancel-btn {
+    color: black;
+    border: 1px solid black;
+    margin:auto;
+}
+
+.AddForm-btn-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+}
+
+button {
+    width: 100px;
+}

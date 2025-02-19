@@ -1,0 +1,31 @@
+.StaffListItem-edit-btn {
+    position: absolute;
+    top: 5px;
+    right:5px;
+}
+
+.StaffListItem-edit-btn button {
+    border: none;
+    width: 50px;
+    padding: 3px 0 3px 0;
+}
+
+.StaffListItem-edit-btn button:hover {
+    background-color: lightblue;
+}
+
+.StaffListItem-delete-btn {
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+
+.StaffListItem-delete-btn button {
+    border: none;
+    width: 50px;
+    padding: 3px 0 3px 0;
+}
+
+.StaffListItem-delete-btn button:hover {
+    background-color: rgb(197, 63, 63);
+}

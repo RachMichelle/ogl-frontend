@@ -1,0 +1,34 @@
+.Delete-subtitle {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+}
+
+.Delete-btns {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Delete-btns button {
+    width: 150px
+}
+
+.Delete-btn-confirm {
+    color: crimson;
+    border: 1px solid crimson;
+}
+
+.Delete-btn-confirm:hover {
+    background-color: crimson;
+}
+
+.Delete-btn-cancel {
+    color: black;
+    border: 1px solid black;
+}
+
+.Delete-text {
+    margin-top: 2rem;
+    font-style: italic;
+    background-color: transparent;
+}

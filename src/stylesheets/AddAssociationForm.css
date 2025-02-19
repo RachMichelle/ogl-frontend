@@ -1,0 +1,36 @@
+.AddAssociationForm {
+    margin-top: 1.25rem;
+}
+
+.AddAssociationForm-text {
+    margin-top: 1.25rem;
+    background-color: transparent;
+    font-style: italic;
+}
+
+.AddAssociationForm .form-select {
+    margin-top: 1.25rem;
+}
+
+.AddAssociationForm-btn {
+    color: rgb(77, 13, 138);
+    border: 1px solid rgb(77, 13, 138);
+    margin: auto;
+}
+
+.AddAssociationForm-btn:hover {
+    background-color: rgb(77, 13, 138)
+}
+
+.AddAssociationForm-cancel-btn {
+    color: black;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.AddAssociationForm-btn-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+}

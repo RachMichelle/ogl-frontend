@@ -1,0 +1,56 @@
+.TeamList {
+    width: 50vw;
+    height: 60vh;
+    margin-top: 15vh;
+    overflow-y: auto;
+}
+
+.TeamsList-add-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.TeamsList-add-btn button {
+    border: none;
+    width: 50px;
+    padding: 5px;
+}
+
+.TeamsList-add-btn button:hover {
+    background-color: lightblue;
+}
+
+.TeamList-nav-item a {
+    color: rgb(20, 84, 180);
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.TeamList-nav-item a:hover {
+    color: rgb(77, 13, 138);
+}
+
+.TeamList-team a {
+    text-decoration: none;
+}
+
+.TeamList-team a:hover {
+    text-decoration: underline;
+}
+
+.TeamsList-edit-btn {
+    position: absolute;
+    left: 0;
+}
+
+.TeamsList-edit-btn button {
+    border: none;
+    padding: 2px 5px 2px 5px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.TeamsList-edit-btn button:hover {
+    background-color: lightblue;
+}

@@ -1,0 +1,71 @@
+.navbar {
+    position: fixed !important;
+    margin-top: 0 !important;
+    min-width: 100vw !important;
+    background-color: rgb(34, 34, 34);
+}
+
+.Navbar-brand {
+    color: rgb(243, 243, 149);
+    font-weight: bolder;
+    font-size: 1.5rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.Navbar-brand:hover {
+    cursor: pointer;
+    color: rgb(197, 158, 235);
+}
+
+.Navbar-brand:visited {
+    color: rgb(243, 243, 149);
+}
+
+.nav-item a {
+    color: rgb(92, 147, 230);
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav-item a:visited {
+    color: rgb(92, 147, 230);
+}
+
+.nav-item a:hover {
+    color: rgb(197, 158, 235);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.navbar-text {
+    color: lightblue;
+    margin: 0 10px 0;
+}
+
+.navbar button {
+    color: rgb(92, 147, 230);
+    text-decoration: none;
+}
+
+.navbar button:hover {
+    color: rgb(197, 158, 235);
+    text-decoration: underline;
+}
+
+.Nav-user-link a{
+    margin: 0 5px 0 5px;
+    color: rgb(92, 147, 230);
+    text-decoration: none;
+}
+
+.Nav-user-link a:visited{
+    color: rgb(92, 147, 230);
+    text-decoration: none;
+}
+
+.Nav-user-link a:hover{
+    color: rgb(197, 158, 235);
+    text-decoration: underline;
+}

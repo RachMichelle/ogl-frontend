@@ -1,0 +1,94 @@
+.Player {
+    height: 60vh;
+    width: 50vw;
+    margin-top: 15vh;
+    overflow-y: auto;
+}
+
+.card-header {
+    margin-top: 25px;
+}
+
+.card-text {
+    font-weight: bold;
+    background-color: rgba(202, 213, 235, .75);
+}
+
+.Player-teams-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+}
+
+.Player-teams-link:hover {
+    text-decoration: underline;
+    color: rgb(77, 13, 138);
+}
+
+.Player-edit-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.Player-edit-btn button {
+    border: none;
+    width: 50px;
+    padding: 5px;
+}
+
+.Player-edit-btn button:hover {
+    background-color: lightblue;
+}
+
+.Player-role {
+    font-size: 1.25rem;
+    margin: 15px 0 15px;
+}
+
+.Player-team-list {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+.Player-team-link a {
+    text-decoration: none;
+}
+
+.Player-team-link a:hover {
+    text-decoration: underline;
+}
+
+.Player-make-inactive-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    border: none;
+}
+
+.Player-make-inactive-btn:hover {
+    background-color: crimson;
+}
+
+.Player-make-active-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    border: none;
+}
+
+.Player-make-active-btn:hover {
+    background-color: mediumspringgreen;
+}
+
+.Player-text {
+    font-weight: normal;
+    background-color: transparent;
+    font-style: italic;
+}

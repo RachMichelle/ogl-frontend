@@ -1,0 +1,12 @@
+.LoginForm-label{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.LoginForm button:hover {
+    background-color: rgb(77, 13, 138)
+}
+
+.LoginForm button {
+    color: rgb(77, 13, 138);
+    border: 1px solid rgb(77, 13, 138);
+}

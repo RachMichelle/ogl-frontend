@@ -1,0 +1,18 @@
+.card-title {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card-subtitle{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(77, 13, 138);
+}
+
+.NotFound-return-link {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.NotFound-return-link:hover {
+    text-decoration: underline;
+    color:rgb(77, 13, 138);
+}

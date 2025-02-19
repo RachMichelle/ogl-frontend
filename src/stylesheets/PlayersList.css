@@ -1,0 +1,50 @@
+.PlayerList {
+    margin-top: 10vh;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.PlayersList-add-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.PlayersList-add-btn button {
+    border: none;
+    width: 50px;
+    padding: 5px;
+}
+
+.PlayersList-add-btn button:hover {
+    background-color: lightblue;
+}
+
+.PlayersList-player {
+    margin: 0 10% 3px 10%;
+    padding: 2%;
+}
+
+.PlayersList-player a {
+    text-decoration: none;
+}
+
+.PlayersList-player a:hover {
+    text-decoration: underline;
+}
+
+.PlayersList-edit-btn {
+    position: absolute;
+    left: 0;
+}
+
+.PlayersList-edit-btn button {
+    border: none;
+    padding: 2px 5px 2px 5px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.PlayersList-edit-btn button:hover {
+    background-color: lightblue;
+}

@@ -1,0 +1,68 @@
+.Team {
+    height: 85vh;
+    width: 50vw;
+    margin-top: 10vh;
+    overflow-y: auto;
+}
+
+.Team-logo {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid black
+}
+
+.Team-captain-link a {
+    margin-left: 5px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.Team-captain-link a:hover {
+    text-decoration: underline;
+    color: rgb(77, 13, 138);
+}
+
+.Team-player-title {
+    margin: 15px 0 10px;
+}
+
+.Team-player {
+    margin-bottom: 3px;
+}
+
+.Team-player a {
+    text-decoration: none;
+}
+
+.Team-player a:hover {
+    text-decoration: underline;
+}
+
+.TeamInfo-edit-btn {
+    position: absolute;
+    right:5px;
+    top:5px;
+}
+
+.TeamInfo-edit-btn button {
+    border: none;
+    padding: 2px 5px 2px 5px;
+    width: 50px;
+    padding: 5px;
+}
+
+.TeamInfo-edit-btn button:hover {
+    background-color: lightblue;
+}
+
+.Team-text-section {
+    margin-top: 25px;
+}
+
+.Team-text {
+    font-weight: normal !important;
+    background-color: transparent !important;
+    font-style: italic;
+}
