@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button, Card, CardHeader, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import userContext from "../userContext";
 import OglApi from "../api";
@@ -14,9 +14,6 @@ const Delete = ({ type }) => {
     const navigate = useNavigate();
 
     const [hasConfirmed, setHasConfirmed] = useState(false)
-
-    // access for admin only
-    if (user.staffType !== 'admin') return <Navigate to={`/${type}`} />;
 
     // for confirm delete => yes 
     const handleDelete = async () => {

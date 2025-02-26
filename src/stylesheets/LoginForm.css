@@ -10,3 +10,13 @@
     color: rgb(77, 13, 138);
     border: 1px solid rgb(77, 13, 138);
 }
+
+.LoginForm-feedback {
+    font-style: italic;
+    color: crimson;
+}
+
+.LoginForm-pwd-btn {
+width: 75px;
+font-size: .75rem;
+}

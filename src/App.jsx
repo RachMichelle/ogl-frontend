@@ -27,6 +27,7 @@ import EditForm from './Components/EditForm.jsx'
 import PasswordForm from './Components/PasswordForm.jsx'
 import Delete from './Components/Delete.jsx'
 import AddAssociationForm from './Components/AddAssociationForm.jsx'
+import HasPermissions from './Components/HasPermissions.jsx'
 
 function App() {
   return (
@@ -44,57 +45,118 @@ function App() {
             <Route path='/staff' element={<StaffList />} />
             <Route path='/login' element={<LoginForm />} />
 
+            {/* protected routes -> HasPermissions component will look for props targetPermissions (array) & redirect destination for unauthorized */}
+
             {/* protected -- admin or mod */}
             <Route path='/players/add'
-              element={<AddForm
-                type='players'
-                subType='player'
-                identifier='alias'
-                fields={playerAddFormData} />} />
+              element={
+                <HasPermissions
+                  targetPermissions={['admin', 'mod']}
+                  redirect='/'>
+                  <AddForm
+                    type='players'
+                    subType='player'
+                    identifier='alias'
+                    fields={playerAddFormData} />
+                </HasPermissions>} />
 
             <Route path='/players/edit/:alias'
-              element={<EditForm
-                type='players'
-                subType='player'
-                fields={playerEditFormData} />} />
+              element={
+                <HasPermissions
+                  targetPermissions={['admin', 'mod']}
+                  redirect='/'>
+                  <EditForm
+                    type='players'
+                    subType='player'
+                    fields={playerEditFormData} />
+                </HasPermissions>} />
 
-            <Route path='/players/teams/:alias' element={<AddAssociationForm />} />
+            <Route path='/players/teams/:alias' element={
+              <HasPermissions
+                targetPermissions={['admin', 'mod']}
+                redirect='/players'>
+                <AddAssociationForm />
+              </HasPermissions>} />
 
             <Route path='/teams/add'
-              element={<AddForm
-                type='teams'
-                subType='team'
-                identifier='code'
-                fields={teamAddFormData} />} />
+              element={
+                <HasPermissions
+                  targetPermissions={['admin', 'mod']}
+                  redirect='/'>
+                  <AddForm
+                    type='teams'
+                    subType='team'
+                    identifier='code'
+                    fields={teamAddFormData} />
+                </HasPermissions>} />
 
             <Route path='/teams/edit/:code'
-              element={<EditForm
-                type='teams'
-                subType='team'
-                fields={teamEditFormData} />} />
+              element={
+                <HasPermissions
+                  targetPermissions={['admin', 'mod']}
+                  redirect='/'>
+                  <EditForm
+                    type='teams'
+                    subType='team'
+                    fields={teamEditFormData} />
+                </HasPermissions>} />
 
             {/* protected -- admin only */}
             <Route path='/staff/add'
-              element={<AddForm
-                type='staff'
-                subType='staff'
-                identifier='username'
-                fields={staffAddFormData} />} />
+              element={
+                <HasPermissions
+                  targetPermissions={['admin']}
+                  redirect='/'>
+                  <AddForm
+                    type='staff'
+                    subType='staff'
+                    identifier='username'
+                    fields={staffAddFormData} />
+                </HasPermissions>} />
 
-            <Route path='/players/delete/:alias' element={<Delete type='players' />} />
-            <Route path='/teams/delete/:code' element={<Delete type='teams' />} />
-            <Route path='/staff/delete/:username' element={<Delete type='staff' />} />
+            <Route path='/players/delete/:alias' element={
+              <HasPermissions
+                targetPermissions={['admin']}
+                redirect='/players'>
+                <Delete type='players' />
+              </HasPermissions>} />
+
+            <Route path='/teams/delete/:code' element={
+              <HasPermissions
+                targetPermissions={['admin']}
+                redirect='/teams'>
+                <Delete type='teams' />
+              </HasPermissions>} />
+
+            <Route path='/staff/delete/:username' element={
+              <HasPermissions
+                targetPermissions={['admin']}
+                redirect='/staff'>
+                <Delete type='staff' />
+              </HasPermissions>} />
 
             {/* protected -- admin or same user */}
             <Route path='/staff/edit/:username'
-              element={<EditForm
-                type='staff'
-                subType='staff'
-                fields={staffEditFormData} />} />
+              element={
+                <HasPermissions
+                  targetPermissions={['admin', 'same']}
+                  redirect='/'>
+                  <EditForm
+                    type='staff'
+                    subType='staff'
+                    fields={staffEditFormData} />
+                </HasPermissions>} />
 
             {/* protected -- same user only */}
-            <Route path='/staff/password/:username' element={<PasswordForm />} />
-            
+            <Route path='/staff/password/:username' element=
+              {
+                <HasPermissions
+                  targetPermissions={['same']}
+                  redirect='/' >
+                  <PasswordForm />
+                </HasPermissions>
+              } />
+
             {/* 404 */}
             <Route path='*' element={<NotFound />} />
           </Routes>

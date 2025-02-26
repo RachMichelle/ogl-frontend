@@ -23,19 +23,6 @@ const EditForm = ({ type, subType, fields }) => {
     const { user } = useContext(userContext);
     const navigate = useNavigate();
 
-    // if form is for staff, only allow access to admin or correct user
-    if (type === 'staff') {
-        if (user.staffType !== 'admin' && user.username !== paramValue) {
-            return <Navigate to='/' />
-        }
-    }
-    // for teams or players, allow access to admin or staff
-    else {
-        if (!user.username) {
-            return <Navigate to='/' />
-        }
-    }
-
     // subject being updated, loading, & form state
     const [toUpdate, setToUpdate] = useState(null);
     const [formData, setFormData] = useState(null);

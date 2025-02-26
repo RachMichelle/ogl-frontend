@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
     Card,
     CardHeader,
@@ -20,9 +20,6 @@ const AddAssociationForm = () => {
     const { alias } = useParams();
 
     const navigate = useNavigate();
-
-    // only accessable to staff
-    if (!user.username) return <Navigate to={`/players/${alias}`} />
 
     const [teams, setTeams] = useState([]);
     const [formData, setFormData] = useState({ team: '' });

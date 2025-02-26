@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
     Button,
     Card,
@@ -19,19 +19,6 @@ import OglApi from "../api";
 const AddForm = ({ type, subType, identifier, fields }) => {
     const { user } = useContext(userContext);
     const navigate = useNavigate();
-
-    // if form is for staff, only allow access to admin
-    if (type === 'staff') {
-        if (user.staffType !== 'admin') {
-            return <Navigate to='/' />
-        }
-    }
-    // for teams or players, allow access to admin or staff
-    else {
-        if (!user.username) {
-            return <Navigate to='/' />
-        }
-    }
 
     // subject being updated, loading, & form state
     const [formData, setFormData] = useState(null);
@@ -109,7 +96,7 @@ const AddForm = ({ type, subType, identifier, fields }) => {
             {/* failed form submit - received error on attempt */}
             {hasSubmit && !isSuccessful &&
                 <>
-                    <CardText> Something went wrong... please check your inputs and try again</CardText>
+                    <CardText>Something went wrong... Could this be a duplicate? Please check your inputs and try again.</CardText>
                     <div className="AddForm-btn-options">
                         <Button outline
                             className="AddForm-btn"

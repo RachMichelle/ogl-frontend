@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
     Card,
     CardBody,
@@ -32,8 +32,6 @@ const PasswordForm = () => {
     const [isSuccessful, setIsSuccessful] = useState(false);
 
     const navigate = useNavigate();
-
-    if (user.username !== username) return <Navigate to='/' />
 
     const handleChange = (e) => {
         const { name, value } = e.target;

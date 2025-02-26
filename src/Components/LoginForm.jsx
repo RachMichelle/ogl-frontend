@@ -10,7 +10,9 @@ import {
     FormGroup,
     Label,
     Input,
-    Button
+    Button,
+    CardText,
+    InputGroup
 } from "reactstrap";
 import '../stylesheets/LoginForm.css'
 import OglApi from "../api";
@@ -28,7 +30,9 @@ const LoginForm = () => {
 
     const navigate = useNavigate();
 
-    const [formData, setFormData] = useState(INITIAL_STATE)
+    const [formData, setFormData] = useState(INITIAL_STATE);
+    const [hasAttempted, setHasAttempted] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,12 +44,18 @@ const LoginForm = () => {
         ))
     }
 
+    const toggleShowPwd = (e) => {
+        e.preventDefault();
+        setShowPassword(showPassword => !showPassword);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let { username, password } = formData;
         const user = await OglApi.authenticateUser(username, password);
         if (!user) {
             setFormData(data => INITIAL_STATE);
+            setHasAttempted(hasAttempted => true);
         } else {
             addUser(user);
             navigate('/');
@@ -57,6 +67,11 @@ const LoginForm = () => {
             <CardTitle>
                 Log In
             </CardTitle>
+            {/* Feedback for failed login attempt. Successful attempt nagivates to homepage, so this will only show if login fails and formm resets*/}
+            {hasAttempted &&
+                <CardText className="LoginForm-feedback">
+                    Incorrect username/password
+                </CardText>}
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username"
@@ -78,15 +93,23 @@ const LoginForm = () => {
                         className="LoginForm-label">
                         Password
                     </Label>
-                    <Input
-                        id="password"
-                        name="password"
-                        placeholder="password"
-                        type="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
+                    <InputGroup>
+                        <Input
+                            id="password"
+                            name="password"
+                            placeholder="password"
+                            type={!showPassword ? "password" : "text"}
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                        <Button  outline 
+                        className="LoginForm-pwd-btn"
+                        onClick={toggleShowPwd}
+                        >
+                            {!showPassword ? 'Show' : 'Hide'}
+                        </Button>
+                    </InputGroup>
                 </FormGroup>
                 <Button outline>Submit</Button>
             </Form>
