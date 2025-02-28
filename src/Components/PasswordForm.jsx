@@ -47,7 +47,7 @@ const PasswordForm = () => {
         ))
     }
 
-    // toggle show/hide password
+    // toggle show/hide password, arguements for state and function to change state.
     const toggleShowPwd = (e, state, setState) => {
         e.preventDefault();
         setState(!state);
@@ -70,6 +70,7 @@ const PasswordForm = () => {
                 <CardTitle>Update Password</CardTitle>
             </CardHeader>
             <CardBody>
+                {/* form submit but change not successful */}
                 {hasSubmit && !isSuccessful &&
                     <>
                         <CardText>Password was not successfully changed. Please make sure current password was entered correctly.</CardText>
@@ -85,6 +86,7 @@ const PasswordForm = () => {
                         </Button>
                     </>}
 
+                {/* form submit and change is successful */}
                 {hasSubmit && isSuccessful &&
                     <>
                         <CardText>Password change successful!</CardText>
@@ -96,6 +98,7 @@ const PasswordForm = () => {
                     </>
                 }
 
+                {/* form prior to submission */}
                 {!hasSubmit &&
                     <>
                         <Form className="PasswordForm"
@@ -115,7 +118,7 @@ const PasswordForm = () => {
                                     />
                                     <Button outline
                                         className="PasswordForm-pwd-btn"
-                                        onClick={(e) => 
+                                        onClick={(e) =>
                                             toggleShowPwd(e, showCurrentPwd, setShowCurrentPwd)}
                                     >
                                         {!showCurrentPwd ? 'Show' : 'Hide'}
@@ -129,6 +132,7 @@ const PasswordForm = () => {
                                 </Label>
                                 <InputGroup>
                                     <Input
+                                        invalid={formData.currentPassword && formData.newPassword === formData.currentPassword}
                                         id="newPassword"
                                         name="newPassword"
                                         placeholder="New Password"
@@ -138,11 +142,14 @@ const PasswordForm = () => {
                                     />
                                     <Button outline
                                         className="PasswordForm-pwd-btn"
-                                        onClick={(e) => 
+                                        onClick={(e) =>
                                             toggleShowPwd(e, showNewPwd, setShowNewPwd)}
                                     >
                                         {!showNewPwd ? 'Show' : 'Hide'}
                                     </Button>
+                                    <FormFeedback>
+                                        New password can't be the same as your current password!
+                                    </FormFeedback>
                                 </InputGroup>
                             </FormGroup>
 
@@ -165,22 +172,24 @@ const PasswordForm = () => {
                                     />
                                     <Button outline
                                         className="PasswordForm-pwd-btn"
-                                        onClick={(e) => 
+                                        onClick={(e) =>
                                             toggleShowPwd(e, showConfirmPwd, setShowConfirmPwd)}
                                     >
                                         {!showConfirmPwd ? 'Show' : 'Hide'}
                                     </Button>
+                                    <FormFeedback>
+                                        Passwords don't match!
+                                    </FormFeedback>
                                 </InputGroup>
-                                <FormFeedback>
-                                    Passwords don't match!
-                                </FormFeedback>
                             </FormGroup>
 
                             <div className='PasswordForm-btn-options'>
+                                {/* button remains disabled unless a new password is entered, current&new passwords don't match, and new&confirmed passwords match*/}
                                 <Button outline
                                     className="PasswordForm-btn"
                                     disabled={formData.newPassword &&
-                                        formData.newPassword === formData.confirmNew
+                                        formData.newPassword === formData.confirmNew &&
+                                        formData.newPassword !== formData.currentPassword
                                         ? false
                                         : true
                                     }>
