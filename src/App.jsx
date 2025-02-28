@@ -47,6 +47,8 @@ function App() {
 
             {/* protected routes -> HasPermissions component will look for props targetPermissions (array) & redirect destination for unauthorized */}
 
+            {/* Links to protected routes render conditionally in public route components based on whether or not a user is logged in and has permission to access them */}
+
             {/* protected -- admin or mod */}
             <Route path='/players/add'
               element={

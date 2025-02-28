@@ -11,7 +11,8 @@ import {
     Label,
     Input,
     Button,
-    CardText
+    CardText,
+    InputGroup
 } from "reactstrap";
 import userContext from "../userContext";
 import OglApi from "../api";
@@ -30,6 +31,9 @@ const PasswordForm = () => {
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [hasSubmit, setHasSubmit] = useState(false);
     const [isSuccessful, setIsSuccessful] = useState(false);
+    const [showCurrentPwd, setShowCurrentPwd] = useState(false);
+    const [showNewPwd, setShowNewPwd] = useState(false);
+    const [showConfirmPwd, setShowConfirmPwd] = useState(false);
 
     const navigate = useNavigate();
 
@@ -41,6 +45,12 @@ const PasswordForm = () => {
                 [name]: value
             }
         ))
+    }
+
+    // toggle show/hide password
+    const toggleShowPwd = (e, state, setState) => {
+        e.preventDefault();
+        setState(!state);
     }
 
     const handleSubmit = async (e) => {
@@ -62,7 +72,7 @@ const PasswordForm = () => {
             <CardBody>
                 {hasSubmit && !isSuccessful &&
                     <>
-                        <CardText>Password was not successfully changed</CardText>
+                        <CardText>Password was not successfully changed. Please make sure current password was entered correctly.</CardText>
                         <Button outline
                             className="PasswordForm-btn"
                             onClick={() => setHasSubmit(false)}>
@@ -74,6 +84,7 @@ const PasswordForm = () => {
                             Cancel
                         </Button>
                     </>}
+
                 {hasSubmit && isSuccessful &&
                     <>
                         <CardText>Password change successful!</CardText>
@@ -84,6 +95,7 @@ const PasswordForm = () => {
                         </Button>
                     </>
                 }
+
                 {!hasSubmit &&
                     <>
                         <Form className="PasswordForm"
@@ -92,49 +104,78 @@ const PasswordForm = () => {
                                 <Label for="currentPassword">
                                     Current Password
                                 </Label>
-                                <Input
-                                    id="currentPassword"
-                                    name="currentPassword"
-                                    placeholder="Current Password"
-                                    type="password"
-                                    value={formData.currentPassword}
-                                    onChange={handleChange}
-                                />
+                                <InputGroup>
+                                    <Input
+                                        id="currentPassword"
+                                        name="currentPassword"
+                                        placeholder="Current Password"
+                                        type={!showCurrentPwd ? "password" : "text"}
+                                        value={formData.currentPassword}
+                                        onChange={handleChange}
+                                    />
+                                    <Button outline
+                                        className="PasswordForm-pwd-btn"
+                                        onClick={(e) => 
+                                            toggleShowPwd(e, showCurrentPwd, setShowCurrentPwd)}
+                                    >
+                                        {!showCurrentPwd ? 'Show' : 'Hide'}
+                                    </Button>
+                                </InputGroup>
                             </FormGroup>
+
                             <FormGroup>
                                 <Label for="newPassword">
                                     New Password
                                 </Label>
-                                <Input
-                                    id="newPassword"
-                                    name="newPassword"
-                                    placeholder="New Password"
-                                    type="password"
-                                    value={formData.newPassword}
-                                    onChange={handleChange}
-                                />
+                                <InputGroup>
+                                    <Input
+                                        id="newPassword"
+                                        name="newPassword"
+                                        placeholder="New Password"
+                                        type={!showNewPwd ? "password" : "text"}
+                                        value={formData.newPassword}
+                                        onChange={handleChange}
+                                    />
+                                    <Button outline
+                                        className="PasswordForm-pwd-btn"
+                                        onClick={(e) => 
+                                            toggleShowPwd(e, showNewPwd, setShowNewPwd)}
+                                    >
+                                        {!showNewPwd ? 'Show' : 'Hide'}
+                                    </Button>
+                                </InputGroup>
                             </FormGroup>
 
                             <FormGroup>
                                 <Label for="ConfirmNewPassword">
                                     Confirm New Password
                                 </Label>
-                                <Input
-                                    invalid={formData.confirmNew &&
-                                        formData.newPassword !== formData.confirmNew}
-                                    valid={formData.confirmNew &&
-                                        formData.newPassword === formData.confirmNew}
-                                    id="confirmNew"
-                                    name="confirmNew"
-                                    placeholder="Confirm New Password"
-                                    type="password"
-                                    value={formData.confirmNew}
-                                    onChange={handleChange}
-                                />
+                                <InputGroup>
+                                    <Input
+                                        invalid={formData.confirmNew &&
+                                            formData.newPassword !== formData.confirmNew}
+                                        valid={formData.confirmNew &&
+                                            formData.newPassword === formData.confirmNew}
+                                        id="confirmNew"
+                                        name="confirmNew"
+                                        placeholder="Confirm New Password"
+                                        type={!showConfirmPwd ? "password" : "text"}
+                                        value={formData.confirmNew}
+                                        onChange={handleChange}
+                                    />
+                                    <Button outline
+                                        className="PasswordForm-pwd-btn"
+                                        onClick={(e) => 
+                                            toggleShowPwd(e, showConfirmPwd, setShowConfirmPwd)}
+                                    >
+                                        {!showConfirmPwd ? 'Show' : 'Hide'}
+                                    </Button>
+                                </InputGroup>
                                 <FormFeedback>
                                     Passwords don't match!
                                 </FormFeedback>
                             </FormGroup>
+
                             <div className='PasswordForm-btn-options'>
                                 <Button outline
                                     className="PasswordForm-btn"
